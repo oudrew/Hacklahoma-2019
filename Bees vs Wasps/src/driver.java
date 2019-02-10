@@ -56,6 +56,10 @@ public class driver
     public static void main(String args[])
     {
         JFrame initial = new JFrame("Hive Wars.");
+        
+        ImageIcon icon = new ImageIcon("Images/Icon.png");
+        
+        initial.setIconImage(icon.getImage());
 
         //Font font = new Font(Font.SERIF, Font.BOLD, 30);
         
@@ -153,6 +157,9 @@ public class driver
 
         //Frame where player 1 will select their deck
         JFrame frameP1 = new JFrame();
+        
+        frameP1.setIconImage(icon.getImage());
+        
         frameP1.setBounds(50, 50, 1000, 1000);
         frameP1.setPreferredSize(new Dimension(1000, 1000));
         frameP1.getContentPane().setLayout(new BorderLayout());
@@ -233,6 +240,7 @@ public class driver
          */
         
         JFrame frameP2 = new JFrame();
+        frameP2.setIconImage(icon.getImage());
         frameP2.setBounds(50, 50, 1000, 1000);
         frameP2.setPreferredSize(new Dimension(1000, 1000));
         frameP2.getContentPane().setLayout(new BorderLayout());
@@ -309,6 +317,7 @@ public class driver
          * --------------------------------------------------------------------------------------------------
          */
         playCardFrameP1 = new JFrame();
+        playCardFrameP1.setIconImage(icon.getImage());
         playCardFrameP1.setBounds(50, 50, 1000, 1000);
         playCardFrameP1.setPreferredSize(new Dimension(1000, 1000));
         playCardFrameP1.getContentPane().setLayout(new BorderLayout());
@@ -322,6 +331,7 @@ public class driver
          * --------------------------------------------------------------------------------------------------
          */
         playCardFrameP2 = new JFrame();
+        playCardFrameP2.setIconImage(icon.getImage());
         playCardFrameP2.setBounds(50, 50, 1000, 1000);
         playCardFrameP2.setPreferredSize(new Dimension(1000, 1000));
         playCardFrameP2.getContentPane().setLayout(new BorderLayout());
@@ -554,8 +564,10 @@ public class driver
         beePanel.add(beeWinText);
         beePanel.setBackground(hackGreen);
         beesWin.add(beePanel);
+        beesWin.setIconImage(icon.getImage());
         
         waspsWin = new JFrame();
+        waspsWin.setIconImage(icon.getImage());
         waspsWin.setBounds(50, 50, 1000, 1000);
         waspsWin.setPreferredSize(new Dimension(1300, 1500));
         waspsWin.getContentPane().setLayout(new GridLayout(1, 1));
