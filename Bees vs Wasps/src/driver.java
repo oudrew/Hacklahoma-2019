@@ -578,10 +578,15 @@ public class driver
         waspWinText.setFont(winFont);
         waspWinText.setHorizontalAlignment(JLabel.CENTER);
         waspWinText.setVerticalAlignment(JLabel.CENTER);
-        JPanel waspPanel = new JPanel(new GridLayout(1, 1));
-        waspPanel.add(waspWinText);
-        waspPanel.setBackground(hackGreen);
-        waspsWin.add(waspPanel);
+        JPanel waspPanel = new JPanel(new GridLayout(2, 1));
+        JLabel hiveFire = new JLabel();
+        ImageIcon hivefire_image = new ImageIcon("Images/HiveFireSmall.png");
+        hiveFire.setIcon(hivefire_image);
+        waspPanel.add(hiveFire);
+        JPanel waspWinPanel = new JPanel(new GridLayout(1, 1));
+        waspWinPanel.add(waspWinPanel);
+        waspWinPanel.setBackground(hackGreen);
+        waspsWin.add(waspWinPanel);
         
 
     }
@@ -687,6 +692,13 @@ public class driver
             	
             	if (buffID == 19) {
             		hasPoison = true;
+            	}
+            }
+            
+            if (c.getID() == 11) {
+            	if (c.getDamage() > 10) {
+            		c.setDamage(10);
+            		c.setModifier(0);
             	}
             }
             
