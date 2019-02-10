@@ -3,6 +3,9 @@ public class Card
 {
     private String name;
     private String affiliation;
+    private int damage;
+    private int healing;
+    private int modifier;
     private String ability;
     private int ID;
     
@@ -12,6 +15,9 @@ public class Card
         this.affiliation = affiliation;
         this.ability = ability;
         this.ID = id;
+        damage = 0;
+        healing = 0;
+        modifier = 0;
     }
 
     /**
@@ -40,6 +46,30 @@ public class Card
      */
     public void setAffiliation(String affiliation) {
         this.affiliation = affiliation;
+    }
+    
+    public int getDamage() {
+    	return damage;
+    }
+    
+    public void setDamage(int damage) {
+    	this.damage = damage;
+    }
+    
+    public void setHealing(int healing) {
+    	this.healing = healing;
+    }
+    
+    public int getHealing() {
+    	return healing;
+    }
+    
+    public int getModifier() {
+    	return modifier;
+    }
+    
+    public void setModifier(int modifier) {
+    	this.modifier = modifier;
     }
 
     /**

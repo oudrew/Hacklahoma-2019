@@ -23,10 +23,4 @@ public class Wasp
         modifier++;
     }
     
-    public void dummy()
-    {
-    	
-    }
-    
-    
 }
