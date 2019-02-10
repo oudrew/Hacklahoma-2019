@@ -92,9 +92,9 @@ public class CardList {
 		tarantulaHawkWasp.setDamage(7);
 		waspCards.put(14, tarantulaHawkWasp);
 		
-		Card reusableStinger = new Card("Reusable Stinger", "Wasp", "Copies the last card played", 15);
+		Card reusableStinger = new Card("Reusable Stinger", "Wasp", "Heals 7 health", 15);
+		reusableStinger.setHealing(7);
 		waspCards.put(15, reusableStinger);
-		/* SPECIAL ABILITY HERE!!!!!! */
 		
 		Card paperWasp = new Card("Paper Wasp", "Wasp", "Deals 1 damage, increases by 4 each time this is played", 16);
 		paperWasp.setDamage(1);

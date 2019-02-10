@@ -641,8 +641,6 @@ public class driver
             beeHP = beeHP - c.getDamage();
             waspHP = waspHP + c.getHealing();
             
-            int lastCardID = c.getID();
-            
             
             if ((c.getModifier() != 0) && (c.getModifier() != 2)) {
             	c.setDamage(c.getDamage() + c.getModifier());
@@ -655,11 +653,7 @@ public class driver
             int buffID = 0;
             
             switch (c.getID()) {
-				
-			case 15:
-				buffID = 15;
-				break;
-				
+		
 			case 18:
 				buffID = 18;
 				break;
@@ -674,9 +668,6 @@ public class driver
 			}
             
             if (buffID != 0) {
-            	if (buffID == 15) {
-            		beeHP = beeHP - cardsP2.get(lastCardID).getDamage();
-            	}
             	if (buffID == 18) {
             		beeHP = beeHP/2;
             	}
