@@ -578,8 +578,12 @@ public class driver
         waspWinText.setFont(winFont);
         waspWinText.setHorizontalAlignment(JLabel.CENTER);
         waspWinText.setVerticalAlignment(JLabel.CENTER);
-        JPanel waspPanel = new JPanel(new GridLayout(1, 1));
-        waspPanel.add(waspPanel);
+        JPanel waspPanel = new JPanel(new GridLayout(2, 1));
+        JLabel hiveFire = new JLabel();
+        ImageIcon hivefire_image = new ImageIcon("Images/HiveFireSmall.png");
+        hiveFire.setIcon(hivefire_image);
+        waspPanel.add(hiveFire);
+        waspPanel.add(waspWinText);
         waspPanel.setBackground(hackGreen);
         waspsWin.add(waspPanel);
         
