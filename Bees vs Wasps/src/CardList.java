@@ -17,41 +17,41 @@ public class CardList {
 	
 	public static HashMap<Integer, Card> makeBeeCards() {
 	    HashMap<Integer, Card> beeCards = new HashMap<Integer, Card>();
-		Card honeyBee = new Card("Honey Bee", "Bee", "Deal 5 damage and take 2 damage", 0);
-		honeyBee.setDamage(5);
-		honeyBee.setHealing(-2);
+		Card honeyBee = new Card("Honey Bee", "Bee", "Deal 8 damage and take 7 damage", 0);
+		honeyBee.setDamage(8);
+		honeyBee.setHealing(-7);
 		beeCards.put(0, honeyBee);
 		
-		Card killerBee = new Card("Killer Bee", "Bee", "Deal 10 damage and take 7 damage", 1);
-		killerBee.setDamage(10);
-		killerBee.setHealing(-7);
+		Card killerBee = new Card("Killer Bee", "Bee", "Deal 15 damage and take 13 damage", 1);
+		killerBee.setDamage(15);
+		killerBee.setHealing(-13);
 		beeCards.put(1, killerBee);
 		
-		Card queenBee = new Card("Queen Bee", "Bee", "Deal 1 damage and heal 6 damage", 2);
-		queenBee.setDamage(1);
+		Card queenBee = new Card("Queen Bee", "Bee", "Deal 7 damage and heal 6 health", 2);
+		queenBee.setDamage(7);
 		queenBee.setHealing(6);
 		beeCards.put(2, queenBee);
 		
-		Card beeKeeper = new Card("Bee Keeper", "Bee", "Heal 4 damage", 3);
+		Card beeKeeper = new Card("Bee Keeper", "Bee", "Heal 4 health", 3);
 		beeKeeper.setHealing(4);
 		beeCards.put(3, beeKeeper);
 		
-		Card apiary = new Card("Apiary", "Bee", "Heal 8 damage", 4);
+		Card apiary = new Card("Apiary", "Bee", "Heal 8 health", 4);
 		apiary.setHealing(8);
 		beeCards.put(4, apiary);
 		
-		Card bumbleBee = new Card("Bumble Bee", "Bee", "deal 4 damage and take 1 damage", 5);
-		bumbleBee.setDamage(4);
-		bumbleBee.setHealing(-1);
+		Card bumbleBee = new Card("Bumble Bee", "Bee", "deal 8 damage and take 2 damage", 5);
+		bumbleBee.setDamage(8);
+		bumbleBee.setHealing(-2);
 		beeCards.put(5, bumbleBee);
 		
 		Card swarm = new Card("Swarm", "Bee", "Next attack does twice the damage to your opponenet AND yourself", 6);
 		beeCards.put(6, swarm);
 		/* SPECIAL ABILITY HERE!!!!!! */
 		
-		Card superBee = new Card("Super Bee", "Bee", "Deal 14 damage and take 12 damage", 7);
-		superBee.setDamage(14);
-		superBee.setHealing(-12);
+		Card superBee = new Card("Super Bee", "Bee", "Deal 20 damage and take 18 damage", 7);
+		superBee.setDamage(20);
+		superBee.setHealing(-18);
 		beeCards.put(7, superBee);
 		
 		Card carpenterBee = new Card("Carpenter Bee", "Bee", "Deal 7 damage and take 4 damage", 8);
@@ -59,8 +59,8 @@ public class CardList {
 		carpenterBee.setHealing(-4);
 		beeCards.put(8, carpenterBee);
 		
-		Card workerBee = new Card("Worker Bee", "Bee", "Deal 2 damage and heal 3 damage", 9);
-		workerBee.setDamage(2);
+		Card workerBee = new Card("Worker Bee", "Bee", "Deal 7 damage and heal 3 health", 9);
+		workerBee.setDamage(7);
 		workerBee.setHealing(3);
 		beeCards.put(9, workerBee);
 		
@@ -84,7 +84,7 @@ public class CardList {
 		mudDauber.setModifier(2);
 		waspCards.put(12, mudDauber);
 		
-		Card stolenHoney = new Card("Stolen Honey", "Wasp", "Heal 7 damage", 13);
+		Card stolenHoney = new Card("Stolen Honey", "Wasp", "Heal 4 damage", 13);
 		stolenHoney.setHealing(7);
 		waspCards.put(13, stolenHoney);
 		
@@ -119,8 +119,8 @@ public class CardList {
 	
 	public static HashMap<Integer, Card> makeNeutralCards() {
 	    HashMap<Integer, Card> neutralCards = new HashMap<Integer, Card>();
-		Card thrownRock = new Card("Thrown Rock", "Neutral", "Deals 5 damage", 20);
-		thrownRock.setDamage(5);
+		Card thrownRock = new Card("Thrown Rock", "Neutral", "Deals 7 damage", 20);
+		thrownRock.setDamage(7);
 	    neutralCards.put(20, thrownRock);
 		
 		Card stupidKid = new Card("Stupid Kid", "Neutral", "Heals 4 health", 21);
@@ -141,16 +141,16 @@ public class CardList {
 		sickHive.setHealing(-7);
 		neutralCards.put(24, sickHive);
 		
-		Card bat = new Card("Bat", "Neutral", "Deals 5 damage", 25);
-		bat.setDamage(5);
+		Card bat = new Card("Bat", "Neutral", "Deals 7 damage", 25);
+		bat.setDamage(7);
 		neutralCards.put(25, bat);
 		
 		Card allergy = new Card("Allergy", "Neutral", "Your next attack deals double damage", 26);
 		neutralCards.put(26, allergy);
 		/* SPECIAL ABILITY HERE!!!!!! */
 		
-		Card bowAndArrow = new Card("Bow and Arrow", "Neutral", "Deals 5 damage", 27);
-		bowAndArrow.setDamage(5);
+		Card bowAndArrow = new Card("Bow and Arrow", "Neutral", "Deals 7 damage", 27);
+		bowAndArrow.setDamage(7);
 		neutralCards.put(27, bowAndArrow);
 		
 		Card hummingbirdFeeder = new Card("Hummingbird Feeder", "Neutral", "Heals both teams 10 health", 28);
@@ -158,7 +158,7 @@ public class CardList {
 		hummingbirdFeeder.setDamage(-10);
 		neutralCards.put(28, hummingbirdFeeder);
 		
-		Card river = new Card ("River", "Neutal", "Heals both teams 7", 29);
+		Card river = new Card ("River", "Neutal", "Heals both teams 7 health", 29);
 		river.setHealing(7);
 		river.setDamage(-7);
 		neutralCards.put(29, river);
