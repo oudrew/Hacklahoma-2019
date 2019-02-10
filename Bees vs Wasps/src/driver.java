@@ -584,10 +584,10 @@ public class driver
         ImageIcon hivefire_image = new ImageIcon("Images/HiveFireSmall.png");
         hiveFire.setIcon(hivefire_image);
         waspPanel.add(hiveFire);
-        JPanel waspPanel = new JPanel(new GridLayout(1, 1));
-        waspPanel.add(waspWinText);
-        waspPanel.setBackground(hackGreen);
-        waspsWin.add(waspPanel);
+        JPanel waspWinPanel = new JPanel(new GridLayout(1, 1));
+        waspWinPanel.add(waspWinPanel);
+        waspWinPanel.setBackground(hackGreen);
+        waspsWin.add(waspWinPanel);
         
 
     }
