@@ -49,6 +49,10 @@ public class Card
         this.affiliation = affiliation;
     }
     
+    /*Damage dealt to the OTHER player
+     * This will only affect the player that DOESN'T play the card
+     * Negative values are used for healing both players
+     */
     public int getDamage() {
     	return damage;
     }
@@ -57,6 +61,9 @@ public class Card
     	this.damage = damage;
     }
     
+    /*Damage dealt to the player
+     * This will only affect the player that plays the card
+     */
     public int getSelfDamage() {
     	return selfDamage;
     }
@@ -65,6 +72,9 @@ public class Card
     	this.selfDamage = selfDamage;
     }
     
+    /*Healing used to heal the player
+     * This will only affect the player that plays the card
+     */
     public void setHealing(int healing) {
     	this.healing = healing;
     }
@@ -72,7 +82,11 @@ public class Card
     public int getHealing() {
     	return healing;
     }
-    
+    /*IMPORTANT!!!
+     * Modifiers may be additive or multiplicative depending on ability
+     * These are mainly used for Wasp cards
+     * Refer to individual cards for specific details
+     */
     public int getModifier() {
     	return modifier;
     }
@@ -95,6 +109,9 @@ public class Card
         this.ability = ability;
     }
     
+    /*Id can be used as an easy way to find a card
+     * Useful for sending data to the server and vice versa
+     */
     public int getID()
     {
         return this.ID;

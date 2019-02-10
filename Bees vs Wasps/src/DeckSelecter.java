@@ -110,7 +110,7 @@ public class DeckSelecter {
                 
                 for (Integer key : allCards.keySet())
                 {
-                    cardPanel2.add(new CardPanel(allCards.get(key)));
+                    cardPanel2.add(new PlayCardPanel(allCards.get(key)));
                 }
                 
                 frame2.add(cardPanel2, BorderLayout.CENTER);
