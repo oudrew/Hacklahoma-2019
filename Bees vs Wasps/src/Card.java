@@ -4,6 +4,7 @@ public class Card
     private String name;
     private String affiliation;
     private int damage;
+    private int selfDamage;
     private int healing;
     private int modifier;
     private String ability;
@@ -54,6 +55,14 @@ public class Card
     
     public void setDamage(int damage) {
     	this.damage = damage;
+    }
+    
+    public int getSelfDamage() {
+    	return selfDamage;
+    }
+    
+    public void setSelfDamage(int selfDamage) {
+    	this.selfDamage = selfDamage;
     }
     
     public void setHealing(int healing) {
