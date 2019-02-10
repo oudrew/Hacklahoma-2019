@@ -1,6 +1,6 @@
 
 public class CardList {
-	public static void main(String[] args) {
+	public static void makeCards(String[] args) {
 		makeBeeCards();
 		makeWaspCards();
 		makeNeutralCards();
