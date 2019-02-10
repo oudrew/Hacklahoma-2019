@@ -51,6 +51,7 @@ public class CardPanel extends JPanel
                 color = Color.RED;
                 source.setBackground(color);
                 DeckSelecter.increaseSelected();
+                DeckSelecter.allCards.put(c.getID(), c);
                 repaint();
               }
               

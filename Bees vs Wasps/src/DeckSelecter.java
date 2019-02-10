@@ -18,6 +18,8 @@ public class DeckSelecter {
 
     private static int numSelected = 0;
     
+    public static HashMap<Integer, Card> allCards;
+    
     public static void increaseSelected()
     {
         numSelected ++;
@@ -34,6 +36,7 @@ public class DeckSelecter {
     }
     public static void main(String[] args) 
     {
+        allCards = new HashMap<Integer, Card>();
         JFrame frame = new JFrame();
         frame.setBounds(50, 50, 1000, 1000);
         frame.setPreferredSize(new Dimension(1000, 1000));
@@ -56,15 +59,28 @@ public class DeckSelecter {
         selectText.setHorizontalAlignment(JLabel.CENTER);
         topPanel.add(selectText);
         
-        JPanel cardPanel = new JPanel(new GridLayout(10, 3));
+        JPanel cardPanel = new JPanel(new GridLayout(5, 4));
         cardPanel.setPreferredSize(new Dimension(700, 700));
         
         
         HashMap<Integer, Card> beeCards = CardList.makeBeeCards();
-        for (int i = 0; i < beeCards.size(); i ++)
+
+        
+        for (int i = 0; i <= 9; i ++)
         {
             cardPanel.add(new CardPanel(beeCards.get(i)));
         }
+        
+        
+        HashMap<Integer, Card> neutralCards = CardList.makeNeutralCards();
+        
+        
+        for (int i = 20; i <= 29; i ++)
+        {
+            cardPanel.add(new CardPanel(neutralCards.get(i)));
+        }
+        
+        
         
         JPanel bottomPanel = new JPanel(new GridLayout(1, 1));
         JButton done = new JButton("Done");
@@ -79,10 +95,16 @@ public class DeckSelecter {
         ActionListener doneListener = new ActionListener(){
             public void actionPerformed(ActionEvent evt) {
                 frame.setVisible(false);
+                for (Integer key : allCards.keySet())
+                {
+                    System.out.println(allCards.get(key).getName());
+                }
               }
               
         };
         done.addActionListener(doneListener);
+    
+    
+        
     }
-
 }
