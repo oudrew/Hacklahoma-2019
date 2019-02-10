@@ -16,6 +16,7 @@ public class driver
     public static boolean isP1 = true; //these are used by CardPanel and PlayCardPanel
     public static boolean p1Playing = true;
     public static boolean p1Turn = true;
+    public static boolean hasPoison = false;
 
     public static JFrame playCardFrameP1; // So are these
     public static JFrame playCardFrameP2;
@@ -583,6 +584,7 @@ public class driver
         ImageIcon hivefire_image = new ImageIcon("Images/HiveFireSmall.png");
         hiveFire.setIcon(hivefire_image);
         waspPanel.add(hiveFire);
+        JPanel waspPanel = new JPanel(new GridLayout(1, 1));
         waspPanel.add(waspWinText);
         waspPanel.setBackground(hackGreen);
         waspsWin.add(waspPanel);
@@ -593,13 +595,31 @@ public class driver
 
     public static void playCard(Card c)
     {
+    	int beeBuffID = 1;
+      
      	Color hackGreen = new Color(169, 217, 188);
     	
-        System.out.println(c.getAbility());
+      
+      System.out.println(c.getAbility());
         if (p1Turn == true)
         {
-            waspHP = waspHP - c.getDamage();
-            beeHP = beeHP + c.getHealing();
+        	if (hasPoison) {
+        		beeHP = beeHP - (c.getDamage() * beeBuffID);
+        		beeHP = beeHP + (c.getHealing() * beeBuffID);
+        		hasPoison = false;
+        		beeBuffID = 1;
+        	}
+        	
+        	else {
+        		waspHP = waspHP - (c.getDamage() * beeBuffID);
+        		beeHP = beeHP + (c.getHealing() * beeBuffID);
+        		beeBuffID = 1;
+        	}
+        	
+        	if ((c.getID() == 6)||(c.getID() == 26)) {
+        		beeBuffID = 2;
+        	}
+        	
             p1Turn = false;
             if (c.getAffiliation() == "Bee")
             {
@@ -637,6 +657,43 @@ public class driver
         {
             beeHP = beeHP - c.getDamage();
             waspHP = waspHP + c.getHealing();
+            
+            
+            if ((c.getModifier() != 0) && (c.getModifier() != 2)) {
+            	c.setDamage(c.getDamage() + c.getModifier());
+            }
+            
+            if (c.getModifier() == 2) {
+            	c.setDamage(c.getDamage() * 2);
+            }
+            
+            int buffID = 0;
+            
+            switch (c.getID()) {
+		
+			case 18:
+				buffID = 18;
+				break;
+				
+			case 19:
+				buffID = 19;
+				break;
+
+			default:
+				buffID = 0;
+				break;
+			}
+            
+            if (buffID != 0) {
+            	if (buffID == 18) {
+            		beeHP = beeHP/2;
+            	}
+            	
+            	if (buffID == 19) {
+            		hasPoison = true;
+            	}
+            }
+            
             p1Turn = true;
             if (waspHP <= 0)
             {
