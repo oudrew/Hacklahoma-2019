@@ -26,6 +26,11 @@ public class DeckSelecter {
     {
         return numSelected;
     }
+    
+    public static void setSelected()
+    {
+        numSelected = 0;
+    }
     public static void main(String[] args) 
     {
         JFrame frame = new JFrame();
@@ -53,12 +58,11 @@ public class DeckSelecter {
         JPanel cardPanel = new JPanel(new GridLayout(10, 3));
         cardPanel.setPreferredSize(new Dimension(700, 700));
         
-        CardPanel card1 = new CardPanel("- 3");
-        //cardPanel.add(card1);
         
         for (int i = 0; i < 30; i ++)
         {
-            cardPanel.add(new CardPanel("+ 5"));
+            Card card = new Card("Stinger", "Bee", "- 3", 1);
+            cardPanel.add(new CardPanel(card));
         }
         
         JPanel bottomPanel = new JPanel(new GridLayout(1, 1));

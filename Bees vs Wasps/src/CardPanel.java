@@ -11,20 +11,28 @@ import javax.swing.JPanel;
 public class CardPanel extends JPanel
 {
     private JLabel ability;
+    private JLabel name;
     private JButton select;
     private boolean isSelected;
+    private Card card;
     
-    public CardPanel(String s)
+    public CardPanel(Card c)
     {
-        isSelected = false;
-        Font font = new Font(Font.SERIF, Font.BOLD, 40);
+        Font font = new Font(Font.SERIF, Font.BOLD, 20);
         Font font2 = new Font(Font.SERIF, Font.PLAIN, 30);
         this.setLayout(new GridLayout(2, 1));
-        ability = new JLabel(s);
+        JPanel topPanel = new JPanel(new GridLayout(2, 1));
+        ability = new JLabel(c.getAbility());
         ability.setFont(font);
         ability.setHorizontalAlignment(JLabel.CENTER);
         ability.setVerticalAlignment(JLabel.CENTER);
-        this.add(ability);
+        name = new JLabel(c.getName() + ",    " + c.getAffiliation());
+        name.setFont(font);
+        name.setVerticalAlignment(JLabel.CENTER);
+        name.setHorizontalAlignment(JLabel.CENTER);
+        topPanel.add(name);
+        topPanel.add(ability);
+        this.add(topPanel);
         
         select = new JButton("Select card");
         select.setFont(font2);
@@ -32,14 +40,16 @@ public class CardPanel extends JPanel
         
         ActionListener selectListener = new ActionListener(){
             public void actionPerformed(ActionEvent evt) {
+                
                 if (DeckSelecter.getSelected() == 10)
                 {
                     return;
                 }
-                Object source = evt.getSource();
+                
+                JButton source = (JButton) evt.getSource();
                 Color color = getBackground();
                 color = Color.RED;
-                setBackground(color);
+                source.setBackground(color);
                 DeckSelecter.increaseSelected();
                 repaint();
               }
