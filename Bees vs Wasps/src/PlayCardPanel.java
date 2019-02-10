@@ -52,7 +52,10 @@ public class PlayCardPanel extends JPanel
                 }
                 else
                 {
+                    driver.p1Playing = true;
                     driver.playCardFrameP2.setVisible(false);
+                    driver.playCardFrameP1.setVisible(true);
+                    driver.playCardFrameP1.revalidate();
                 }
                 driver.playCard(c);
             }
