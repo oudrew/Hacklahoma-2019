@@ -58,7 +58,14 @@ public class driver
     {
         JFrame initial = new JFrame("Hive Wars.");
 
-        Font font = new Font(Font.SERIF, Font.BOLD, 30);
+        //Font font = new Font(Font.SERIF, Font.BOLD, 30);
+        
+        // Dialog_input font is the closest font to terminal I could find
+     	Font font = new Font(Font.DIALOG_INPUT, Font.BOLD, 30);
+     	//Exact RGB for the 2019 Hacklahoma Green - Taken from Hacklahoma.org
+     	Color hackGreen = new Color(169, 217, 188);
+     	Color hackYellow = new Color(255, 213, 138);
+	 	Color hackDarkGreen = new Color(0, 138, 136);
 
         // set the size and bounds
         initial.setBounds(50, 50, 600, 600);
@@ -75,24 +82,37 @@ public class driver
         JLabel title = new JLabel("Hive Wars.");
         title.setFont(font);
         top.add(title);
+        top.setBackground(hackGreen);
 
         // Mid left
         JPanel midLeft = new JPanel();
+        midLeft.setBackground(hackGreen);
         midLeft.setLayout(new BorderLayout(20, 20));
         JLabel p1 = new JLabel("Player One");
+        p1.setFont(font);
         JButton p1_setDeck = new JButton("Set Deck");
-        JPictureBox p1_image = new JPictureBox();					// Player One Picture
+        JLabel p1_image = new JLabel();
+        //JPictureBox p1_image = new JPictureBox();					// Player One Picture
         ImageIcon Bee = new ImageIcon("Images/HoneyNut.jpg");		// Image Object
         p1_image.setIcon(Bee);									//set JPicBox as Image
         midLeft.add(BorderLayout.NORTH, p1);
         midLeft.add(BorderLayout.CENTER, p1_image);
         midLeft.add(BorderLayout.SOUTH, p1_setDeck);
+        
+        // JButton formatting
+        p1_setDeck.setBackground(hackDarkGreen);
+        p1_setDeck.setForeground(hackYellow);
+        p1_setDeck.setFocusPainted(false);
+        p1_setDeck.setBorder(BorderFactory.createLineBorder(hackYellow, 5, true));
+        p1_setDeck.setFont(font);
+        
 
         // Mid right
         JPanel midRight = new JPanel();
-        //midRight.setLayout(new BoxLayout(midRight, BoxLayout.PAGE_AXIS));	// PAGE_AXIS is vertical 
+        midRight.setBackground(hackGreen);
         midRight.setLayout(new BorderLayout(20, 20));
         JLabel p2 = new JLabel("Player Two");
+        p2.setFont(font);
         JButton p2_setDeck = new JButton("Set Deck");
         JPictureBox p2_image = new JPictureBox();					// Player Two Picture
         ImageIcon Wasp = new ImageIcon("Images/AntWasp.jpg");		// Image Object
@@ -100,10 +120,13 @@ public class driver
         midRight.add(BorderLayout.NORTH, p2);
         midRight.add(BorderLayout.CENTER, p2_image);
         midRight.add(BorderLayout.SOUTH, p2_setDeck);
-
-        //JPanel mid = new JPanel();
-        //mid.add(midLeft, BorderLayout.WEST);
-        //mid.add(midRight, BorderLayout.EAST);
+        
+        // JButton formatting
+        p2_setDeck.setBackground(hackDarkGreen);
+        p2_setDeck.setForeground(hackYellow);
+        p2_setDeck.setFocusPainted(false);
+        p2_setDeck.setBorder(BorderFactory.createLineBorder(hackYellow, 5, true));
+        p2_setDeck.setFont(font);
 
         JPanel mid = new JPanel(new GridLayout(1,2));
         mid.add(midLeft);
@@ -112,13 +135,18 @@ public class driver
         // adding panels to frame
         initial.getContentPane().add(BorderLayout.NORTH, top);
         initial.getContentPane().add(BorderLayout.CENTER, mid);
-        //initial.getContentPane().add(BorderLayout.LINE_START, midLeft);
-        //initial.getContentPane().add(BorderLayout.LINE_END, midRight);
-
 
         // default
         initial.setVisible(true);
         initial.pack();
+        
+        /*
+         * --------------------------------------------------------------------------------------------------
+         * Deck Selector
+         * 
+         * Player 1
+         * --------------------------------------------------------------------------------------------------
+         */
 
         //These are the hashmaps where all the possible cards are stored
         cardsP1 = new HashMap<Integer, Card>();
@@ -142,6 +170,7 @@ public class driver
 
         //Holds the player name 
         JPanel topPanel = new JPanel(new GridLayout(2, 1));
+        topPanel.setBackground(hackGreen);
 
         JPanel beesAndNumber = new JPanel(new FlowLayout());
         JLabel playerBees = new JLabel("Bees");
@@ -157,6 +186,7 @@ public class driver
         //Holds the actual CardPanels
         JPanel cardPanel = new JPanel(new GridLayout(5, 4));
         cardPanel.setPreferredSize(new Dimension(700, 700));
+        cardPanel.setBackground(hackGreen);
 
         //Generates the bee cards from CardList
         HashMap<Integer, Card> beeCards = CardList.makeBeeCards();
@@ -183,14 +213,26 @@ public class driver
         done.setFont(font);
         done.setPreferredSize(new Dimension(100, 100));
         bottomPanel.add(done);
+        // Done button prefs
+        done.setBackground(hackDarkGreen);
+        done.setForeground(hackYellow);
+        done.setFocusPainted(false);
+        done.setBorder(BorderFactory.createLineBorder(hackYellow, 5, true));
+        done.setFont(font);
 
         frameP1.add(topPanel, BorderLayout.NORTH);
         frameP1.add(cardPanel, BorderLayout.CENTER);
         frameP1.add(bottomPanel, BorderLayout.SOUTH);
 
-        //=========================================================================================
-        //Creates the deck choosing frame for player two
-        //This frame is practically identical to the selection frame for player 1
+        /*
+         * --------------------------------------------------------------------------------------------------
+         * Deck Selector
+         * 
+         * Creates the deck choosing frame for player two
+         * This frame is practically identical to the selection frame for player 1
+         * --------------------------------------------------------------------------------------------------
+         */
+        
         JFrame frameP2 = new JFrame();
         frameP2.setBounds(50, 50, 1000, 1000);
         frameP2.setPreferredSize(new Dimension(1000, 1000));
@@ -208,6 +250,7 @@ public class driver
         p2_setDeck.addActionListener(setDeckP2Listener);
 
         JPanel topPanelP2 = new JPanel(new GridLayout(2, 1));
+        topPanelP2.setBackground(hackGreen);
 
         JPanel beesAndNumberP2 = new JPanel(new FlowLayout());
         JLabel playerBeesP2 = new JLabel("Wasps");
@@ -248,13 +291,24 @@ public class driver
         doneP2.setFont(font);
         doneP2.setPreferredSize(new Dimension(100, 100));
         bottomPanelP2.add(doneP2);
+        
+        //Donep2 prefs
+        doneP2.setBackground(hackDarkGreen);
+        doneP2.setForeground(hackYellow);
+        doneP2.setFocusPainted(false);
+        doneP2.setBorder(BorderFactory.createLineBorder(hackYellow, 5, true));
+        doneP2.setFont(font);
 
         frameP2.add(topPanelP2, BorderLayout.NORTH);
         frameP2.add(cardPanelP2, BorderLayout.CENTER);
         frameP2.add(bottomPanelP2, BorderLayout.SOUTH);
 
-        //=========================================================================================================
-        //This is the frame where players pick which card they want to play
+        /*
+         * --------------------------------------------------------------------------------------------------
+         * This is the frame where players pick which card they want to play
+         * 
+         * --------------------------------------------------------------------------------------------------
+         */
         playCardFrameP1 = new JFrame();
         playCardFrameP1.setBounds(50, 50, 1000, 1000);
         playCardFrameP1.setPreferredSize(new Dimension(1000, 1000));
@@ -262,7 +316,12 @@ public class driver
         playCardFrameP1.setVisible(false);
         playCardFrameP1.pack();
 
-        //This is the same frame for player 2
+        /*
+         * --------------------------------------------------------------------------------------------------
+         * This is the same frame for player 2
+         * 
+         * --------------------------------------------------------------------------------------------------
+         */
         playCardFrameP2 = new JFrame();
         playCardFrameP2.setBounds(50, 50, 1000, 1000);
         playCardFrameP2.setPreferredSize(new Dimension(1000, 1000));
@@ -274,7 +333,7 @@ public class driver
 
         // Dialog_input font is the closest font to terminal I could find
         //Exact RGB for the 2019 Hacklahoma Green - Taken from Hacklahoma.org
-        Color hackGreen = new Color(169, 217, 188);
+        
 
         // set the size and bounds
         main.setBounds(50, 50, 600, 600);
@@ -296,10 +355,12 @@ public class driver
         p2_hive.setFont(customFont);
 
         // create the images for each player
-        JPictureBox p1_image2 = new JPictureBox();
-        JPictureBox p2_image2 = new JPictureBox();
+        //JPictureBox p1_image2 = new JPictureBox();
+        //JPictureBox p2_image2 = new JPictureBox();
+        JLabel p1_image2 = new JLabel();
+        JLabel p2_image2 = new JLabel();
         ImageIcon bee = new ImageIcon("Images/hacklahoma_bee.png");     // Image Object
-        ImageIcon wasp = new ImageIcon("Images/hack_wasp.png");     // Image Object
+        ImageIcon wasp = new ImageIcon("Images/Wasp_Small.png");     // Image Object
         p1_image2.setIcon(bee);
         p2_image2.setIcon(wasp);
 
@@ -314,11 +375,12 @@ public class driver
         waspHPPanel.add(waspHealth);
         */
         //add to left/right in order for flow layout
-        left.add(p1_image);
+        left.add(p1_image2);
         left.add(p1_hive);
         //left.add(beeHPPanel);
         right.add(p2_hive);
-        right.add(p2_image);
+        right.add(p2_image2);
+        right.setPreferredSize(new Dimension(50, 50));
        // right.add(waspHPPanel);
 
         // add left/right to upper in order
@@ -338,34 +400,51 @@ public class driver
         card.add(health);
         card.add(damage);
 
-        JPanel leftEmpty = new JPanel();        // place holders
-        JPanel rightEmpty = new JPanel();       // place holders
+        //JPanel leftEmpty = new JPanel();        // place holders
+        //JPanel rightEmpty = new JPanel();       // place holders
         JPanel bottomEmpty = new JPanel();
-        leftEmpty.setBackground(hackGreen);
-        rightEmpty.setBackground(hackGreen);
+        //leftEmpty.setBackground(hackGreen);
+        //rightEmpty.setBackground(hackGreen);
         bottomEmpty.setBackground(hackGreen);
 
-        int height = leftEmpty.getHeight();     // define constant height to set custom width
-        leftEmpty.setPreferredSize(new Dimension(400, height));
-        rightEmpty.setPreferredSize(new Dimension(400, height));
+        //int height = leftEmpty.getHeight();     // define constant height to set custom width
+        //leftEmpty.setPreferredSize(new Dimension(400, height));
+        //rightEmpty.setPreferredSize(new Dimension(400, height));
 
         south.add(BorderLayout.CENTER, card);
-        south.add(BorderLayout.WEST, leftEmpty);
-        south.add(BorderLayout.EAST, rightEmpty);
+        //south.add(BorderLayout.WEST, leftEmpty);
+        //south.add(BorderLayout.EAST, rightEmpty);
         south.add(BorderLayout.SOUTH, bottomEmpty);
 
         leftPanel = new JPanel(new GridLayout(1, 1));
+        // test reformat of left panel
+        int height = leftPanel.getHeight();
+        leftPanel.setPreferredSize(new Dimension(400, height));
+        leftPanel.setBackground(hackGreen);
+        //
+        JLabel hive1 = new JLabel("Hive: ");
+        hive1.setFont(font);
         JLabel hp1 = new JLabel("20");
+        hp1.setFont(font);
         hp1.setFont(customFont);
         hp1.setHorizontalAlignment(JLabel.CENTER);
         hp1.setVerticalAlignment(JLabel.CENTER);
+        leftPanel.add(hive1);
         leftPanel.add(hp1);
         
         rightPanel = new JPanel(new GridLayout(1, 1));
+        //
+        rightPanel.setPreferredSize(new Dimension(400, height));
+        rightPanel.setBackground(hackGreen);
+        //
+        JLabel hive2 = new JLabel("Hive: ");
+        hive2.setFont(font);
         JLabel hp2 = new JLabel("20");
+        hp2.setFont(font);
         hp2.setFont(customFont);
         hp2.setHorizontalAlignment(JLabel.CENTER);
         hp2.setVerticalAlignment(JLabel.CENTER);
+        rightPanel.add(hive2);
         rightPanel.add(hp2);
 
 
@@ -378,8 +457,6 @@ public class driver
         // default
         main.setVisible(false);
         main.pack();
-
-
 
         //This checks to see when player 1 is done choosing their deck
         ActionListener doneP1Listener = new ActionListener(){
@@ -441,6 +518,8 @@ public class driver
         topPanel2.add(playerLabel);
         topPanel2.add(selectCard);
         playCardFrameP1.add(topPanel2, BorderLayout.NORTH);
+        //pref
+        topPanel2.setBackground(hackGreen);
 
         //Creates the same frame for player 2
         JPanel topPanel2P2 = new JPanel(new GridLayout(2, 1));
@@ -453,6 +532,8 @@ public class driver
         topPanel2P2.add(playerLabelP2);
         topPanel2P2.add(selectCardP2);
         playCardFrameP2.add(topPanel2P2, BorderLayout.NORTH);
+        //pref
+        topPanel2P2.setBackground(hackGreen);
         
         beesWin = new JFrame();
         beesWin.setBounds(50, 50, 1000, 1000);
@@ -463,16 +544,21 @@ public class driver
         
         Font winFont = new Font(Font.SERIF, Font.BOLD, 50);
         JLabel beeWinText = new JLabel("Bees Win!");
+        JLabel lineBee = new JLabel();
+        ImageIcon lineBee_Image = new ImageIcon("Images/BeeWline.png");
+        lineBee.setIcon(lineBee_Image);
         beeWinText.setFont(winFont);
         beeWinText.setHorizontalAlignment(JLabel.CENTER);
         beeWinText.setVerticalAlignment(JLabel.CENTER);
-        JPanel beePanel = new JPanel(new GridLayout(1, 1));
+        JPanel beePanel = new JPanel(new GridLayout(2, 1));
+        beePanel.add(lineBee);
         beePanel.add(beeWinText);
+        beePanel.setBackground(hackGreen);
         beesWin.add(beePanel);
         
         waspsWin = new JFrame();
         waspsWin.setBounds(50, 50, 1000, 1000);
-        waspsWin.setPreferredSize(new Dimension(1300, 1300));
+        waspsWin.setPreferredSize(new Dimension(1300, 1500));
         waspsWin.getContentPane().setLayout(new GridLayout(1, 1));
         waspsWin.setVisible(false);
         waspsWin.pack();
@@ -482,7 +568,8 @@ public class driver
         waspWinText.setHorizontalAlignment(JLabel.CENTER);
         waspWinText.setVerticalAlignment(JLabel.CENTER);
         JPanel waspPanel = new JPanel(new GridLayout(1, 1));
-        waspPanel.add(waspPanel);
+        waspPanel.add(waspWinText);
+        waspPanel.setBackground(hackGreen);
         waspsWin.add(waspPanel);
         
 
@@ -492,7 +579,11 @@ public class driver
     public static void playCard(Card c)
     {
     	int beeBuffID = 1;
-        System.out.println(c.getAbility());
+      
+     	Color hackGreen = new Color(169, 217, 188);
+    	
+      
+      System.out.println(c.getAbility());
         if (p1Turn == true)
         {
         	if (hasPoison) {
@@ -615,6 +706,11 @@ public class driver
         main.remove(rightPanel);
         leftPanel = new JPanel(new GridLayout(1, 1));
         rightPanel = new JPanel(new GridLayout(1, 1));
+        
+        //
+        int height = leftPanel.getHeight();
+        leftPanel.setPreferredSize(new Dimension(400, height));
+        leftPanel.setBackground(hackGreen);
         JLabel hp1 = new JLabel(Integer.toString(beeHP));
         hp1.setFont(customFont);
         hp1.setHorizontalAlignment(JLabel.CENTER);
@@ -625,6 +721,9 @@ public class driver
         hp2.setHorizontalAlignment(JLabel.CENTER);
         hp2.setVerticalAlignment(JLabel.CENTER);
         rightPanel.add(hp2);
+        
+        rightPanel.setPreferredSize(new Dimension(400, height));
+        rightPanel.setBackground(hackGreen);
         
         main.getContentPane().add(leftPanel, BorderLayout.WEST);
         main.getContentPane().add(rightPanel, BorderLayout.EAST);
