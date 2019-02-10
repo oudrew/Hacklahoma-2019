@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -59,10 +60,10 @@ public class DeckSelecter {
         cardPanel.setPreferredSize(new Dimension(700, 700));
         
         
-        for (int i = 0; i < 30; i ++)
+        HashMap<Integer, Card> beeCards = CardList.makeBeeCards();
+        for (int i = 0; i < beeCards.size(); i ++)
         {
-            Card card = new Card("Stinger", "Bee", "- 3", 1);
-            cardPanel.add(new CardPanel(card));
+            cardPanel.add(new CardPanel(beeCards.get(i)));
         }
         
         JPanel bottomPanel = new JPanel(new GridLayout(1, 1));
