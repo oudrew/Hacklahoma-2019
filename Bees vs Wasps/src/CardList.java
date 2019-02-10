@@ -91,7 +91,7 @@ public class CardList {
 		Card paperWasp = new Card("Paper Wasp", "Wasp", "Deals 1 damage, increases by 3 each time this is played", 16);
 		paperWasp.setDamage(1);
 		paperWasp.setModifier(3);
-		waspCards.put(16, paperjacket);
+		waspCards.put(16, paperWasp);
 		
 		Card cicadaKiller = new Card("Cicada Killer", "Wasp", "Deals 5 damage, increases by 1 each time this is played", 17);
 		cicadaKiller.setDamage(5);
