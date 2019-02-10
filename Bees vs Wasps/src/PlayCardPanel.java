@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class CardPanel extends JPanel
+public class PlayCardPanel extends JPanel
 {
     private JLabel ability;
     private JLabel name;
@@ -17,7 +17,7 @@ public class CardPanel extends JPanel
     private boolean isSelected;
     private Card card;
     
-    public CardPanel(Card c)
+    public PlayCardPanel(Card c)
     {
         Font font = new Font(Font.SERIF, Font.BOLD, 20);
         Font font2 = new Font(Font.SERIF, Font.PLAIN, 30);
@@ -43,27 +43,19 @@ public class CardPanel extends JPanel
         
         ActionListener selectListener = new ActionListener(){
             public void actionPerformed(ActionEvent evt) {
-                
-                if (driver.getSelected() == 10)
+                if (driver.p1Playing == true)
                 {
-                    return;
-                }
-                
-                JButton source = (JButton) evt.getSource();
-                Color color = getBackground();
-                color = Color.RED;
-                source.setBackground(color);
-                driver.increaseSelected();
-                if (driver.isP1 == true)
-                {
-                    driver.cardsP1.put(c.getID(), c);
+                    driver.p1Playing = false;
+                    driver.playCardFrameP1.setVisible(false);
+                    driver.playCardFrameP2.setVisible(true);
+                    driver.playCardFrameP2.revalidate();
                 }
                 else
                 {
-                    driver.cardsP2.put(c.getID(), c);
+                    driver.playCardFrameP2.setVisible(false);
                 }
-                repaint();
-              }
+                driver.playCard(c);
+            }
               
         };
         select.addActionListener(selectListener);
