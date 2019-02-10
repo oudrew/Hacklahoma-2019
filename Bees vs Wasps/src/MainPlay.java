@@ -81,6 +81,9 @@ public class MainPlay {
 		south.add(BorderLayout.EAST, rightEmpty);
 		south.add(BorderLayout.SOUTH, bottomEmpty);
 		
+		main.getContentPane().add(leftPanel, BorderLayout.WEST);
+		main.getContentPane().add(rightPanel, BorderLayout.EAST);
+		
 		
 		
 		// put into frame
