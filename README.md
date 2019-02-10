@@ -1,5 +1,5 @@
 # Hacklahoma-2019 
-![Hive Wars Logo](https://github.com/oudrew/Hacklahoma-2019/blob/master/Bees%20vs%20Wasps/Images/Logo.jpgf)
+![Hive Wars Logo](/Bees%20vs%20Wasps/Images/Logo.jpg)
 
 ## Hacklahoma 2019 Team Members:
 ### Drew Harris [@oudrew]
