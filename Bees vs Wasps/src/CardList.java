@@ -121,6 +121,7 @@ public class CardList {
 		
 		Card windStorm = new Card("Windstorm", "Neutral", "Deals 7 damage to both players", 22);
 		windStorm.setDamage(7);
+		windStorm.setSelfDamage(7);
 		neutralCards.put(22, windStorm);
 		
 		Card flowers = new Card("Flowers", "Neutral", "Heals 4 health", 23);
@@ -129,6 +130,7 @@ public class CardList {
 		
 		Card sickHive = new Card("Sick Hive", "Neutral", "Deals 7 damage to both teams", 24);
 		sickHive.setDamage(7);
+		sickHive.setSelfDamage(7);
 		neutralCards.put(24, sickHive);
 		
 		Card bat = new Card("Bat", "Neutral", "Deals 5 damage", 25);
@@ -146,10 +148,12 @@ public class CardList {
 		
 		Card hummingbirdFeeder = new Card("Hummingbird Feeder", "Neutral", "Heals both teams 10 health", 28);
 		hummingbirdFeeder.setHealing(10);
+		hummingbirdFeeder.setDamage(-10);
 		neutralCards.put(28, hummingbirdFeeder);
 		
 		Card river = new Card ("River", "Neutal", "Heals both teams 7", 29);
 		river.setHealing(7);
+		river.setDamage(-7);
 		neutralCards.put(29, river);
 		
 		return neutralCards;
