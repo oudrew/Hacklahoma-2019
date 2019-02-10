@@ -677,6 +677,13 @@ public class driver
             	}
             }
             
+            if (c.getID() == 11) {
+            	if (c.getDamage() > 10) {
+            		c.setDamage(10);
+            		c.setModifier(0);
+            	}
+            }
+            
             p1Turn = true;
             if (waspHP <= 0)
             {
