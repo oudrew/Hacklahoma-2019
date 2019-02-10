@@ -1,5 +1,5 @@
 # Hacklahoma-2019 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](Hacklahoma-2019/Bees vs Wasps/Images/Logo.jpg)
 
 ## Hacklahoma 2019 Team Members:
 ### Drew Harris [@oudrew]
