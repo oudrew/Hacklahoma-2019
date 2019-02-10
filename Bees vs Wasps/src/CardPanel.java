@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -33,6 +34,8 @@ public class CardPanel extends JPanel
         topPanel.add(name);
         topPanel.add(ability);
         this.add(topPanel);
+        this.setBorder(BorderFactory.createLineBorder(Color.black));
+
         
         select = new JButton("Select card");
         select.setFont(font2);

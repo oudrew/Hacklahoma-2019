@@ -92,6 +92,13 @@ public class DeckSelecter {
         frame.add(cardPanel, BorderLayout.CENTER);
         frame.add(bottomPanel, BorderLayout.SOUTH);
         
+        JFrame frame2 = new JFrame();
+        frame2.setBounds(50, 50, 1000, 1000);
+        frame2.setPreferredSize(new Dimension(1000, 1000));
+        frame2.getContentPane().setLayout(new BorderLayout());
+        frame2.setVisible(false);
+        frame2.pack();
+        
         ActionListener doneListener = new ActionListener(){
             public void actionPerformed(ActionEvent evt) {
                 frame.setVisible(false);
@@ -99,11 +106,35 @@ public class DeckSelecter {
                 {
                     System.out.println(allCards.get(key).getName());
                 }
+                JPanel cardPanel2 = new JPanel(new GridLayout(2, 5));
+                
+                for (Integer key : allCards.keySet())
+                {
+                    cardPanel2.add(new CardPanel(allCards.get(key)));
+                }
+                
+                frame2.add(cardPanel2, BorderLayout.CENTER);
+                frame2.setVisible(true);
+                frame2.revalidate();
               }
-              
         };
         done.addActionListener(doneListener);
     
+        
+        
+        
+        JPanel topPanel2 = new JPanel(new GridLayout(2, 1));
+        JLabel playerLabel = new JLabel("Player 1");
+        playerLabel.setFont(font);
+        playerLabel.setHorizontalAlignment(JLabel.CENTER);
+        JLabel selectCard = new JLabel("Select a card to play");
+        selectCard.setFont(font);
+        selectCard.setHorizontalAlignment(JLabel.CENTER);
+        topPanel2.add(playerLabel);
+        topPanel2.add(selectCard);
+        frame2.add(topPanel2, BorderLayout.NORTH);
+        
+        
     
         
     }
