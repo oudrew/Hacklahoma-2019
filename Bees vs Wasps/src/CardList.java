@@ -19,12 +19,12 @@ public class CardList {
 	    HashMap<Integer, Card> beeCards = new HashMap<Integer, Card>();
 		Card honeyBee = new Card("Honey Bee", "Bee", "Deal 5 damage and take 2 damage", 0);
 		honeyBee.setDamage(5);
-		honeyBee.setSelfDamage(2);
+		honeyBee.setHealing(-2);
 		beeCards.put(0, honeyBee);
 		
 		Card killerBee = new Card("Killer Bee", "Bee", "Deal 10 damage and take 7 damage", 1);
 		killerBee.setDamage(10);
-		killerBee.setSelfDamage(7);
+		killerBee.setHealing(-7);
 		beeCards.put(1, killerBee);
 		
 		Card queenBee = new Card("Queen Bee", "Bee", "Deal 1 damage and heal 6 damage", 2);
@@ -42,7 +42,7 @@ public class CardList {
 		
 		Card bumbleBee = new Card("Bumble Bee", "Bee", "deal 4 damage and take 1 damage", 5);
 		bumbleBee.setDamage(4);
-		bumbleBee.setSelfDamage(1);
+		bumbleBee.setHealing(-1);
 		beeCards.put(5, bumbleBee);
 		
 		Card swarm = new Card("Swarm", "Bee", "Next attack does twice the damage to your opponenet AND yourself", 6);
@@ -51,12 +51,12 @@ public class CardList {
 		
 		Card superBee = new Card("Super Bee", "Bee", "Deal 14 damage and take 12 damage", 7);
 		superBee.setDamage(14);
-		superBee.setSelfDamage(12);
+		superBee.setHealing(-12);
 		beeCards.put(7, superBee);
 		
 		Card carpenterBee = new Card("Carpenter Bee", "Bee", "Deal 7 damage and take 4 damage", 8);
 		carpenterBee.setDamage(7);
-		carpenterBee.setSelfDamage(4);
+		carpenterBee.setHealing(-4);
 		beeCards.put(8, carpenterBee);
 		
 		Card workerBee = new Card("Worker Bee", "Bee", "Deal 2 damage and heal 3 damage", 9);
@@ -129,7 +129,7 @@ public class CardList {
 		
 		Card windStorm = new Card("Windstorm", "Neutral", "Deals 7 damage to both players", 22);
 		windStorm.setDamage(7);
-		windStorm.setSelfDamage(7);
+		windStorm.setHealing(-7);
 		neutralCards.put(22, windStorm);
 		
 		Card flowers = new Card("Flowers", "Neutral", "Heals 4 health", 23);
@@ -138,7 +138,7 @@ public class CardList {
 		
 		Card sickHive = new Card("Sick Hive", "Neutral", "Deals 7 damage to both teams", 24);
 		sickHive.setDamage(7);
-		sickHive.setSelfDamage(7);
+		sickHive.setHealing(-7);
 		neutralCards.put(24, sickHive);
 		
 		Card bat = new Card("Bat", "Neutral", "Deals 5 damage", 25);
