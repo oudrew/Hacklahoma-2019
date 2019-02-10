@@ -1,11 +1,19 @@
 import java.util.HashMap;
 
 public class CardList {
+	
+	/*This is the code that initializes everything and put it into a Hashmap
+	 * All the variables are explained in the card class
+	 * Cards that require special code are marked
+	 */
+	
+	
 	public static void makeCards(String[] args) {
 		makeBeeCards();
 		makeWaspCards();
 		makeNeutralCards();
 	}
+	
 	
 	public static HashMap<Integer, Card> makeBeeCards() {
 	    HashMap<Integer, Card> beeCards = new HashMap<Integer, Card>();
