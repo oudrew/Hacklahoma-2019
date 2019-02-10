@@ -12,6 +12,8 @@ public class driver
 
     public static HashMap<Integer, Card> cardsP1;
     public static HashMap<Integer, Card> cardsP2;
+    
+    public static Card chosenCard;
 
     public static boolean isP1 = true; //these are used by CardPanel and PlayCardPanel
     public static boolean p1Playing = true;
@@ -32,11 +34,14 @@ public class driver
     public static JPanel leftPanel;
     public static JPanel rightPanel;
     public static JPanel playCardPanelP1;
+    public static JPanel card;
     public static Font customFont = new Font(Font.DIALOG_INPUT, Font.BOLD, 30);
+    
 
 
     public static int beeHP = 20;
     public static int waspHP = 20;
+    public static int cardID;
 
     public static void increaseSelected()
     {
@@ -401,15 +406,9 @@ public class driver
         JPanel south = new JPanel(new BorderLayout());
 
         // card panel
-        JPanel card = new JPanel(new FlowLayout());
+        card = new JPanel(new GridLayout(2, 1));
         card.setBorder(BorderFactory.createLineBorder(Color.black, 15, true));
-        JLabel health = new JLabel("Health");
-        health.setFont(customFont);
-        JLabel damage = new JLabel("Damage");
-        damage.setFont(customFont);
-        card.add(health);
-        card.add(damage);
-
+        
         //JPanel leftEmpty = new JPanel();        // place holders
         //JPanel rightEmpty = new JPanel();       // place holders
         JPanel bottomEmpty = new JPanel();
@@ -595,6 +594,8 @@ public class driver
 
     public static void playCard(Card c)
     {
+        chosenCard = c;
+        
     	int beeBuffID = 1;
       
      	Color hackGreen = new Color(169, 217, 188);
@@ -654,7 +655,7 @@ public class driver
             
         }
         else
-        {
+        {   
             beeHP = beeHP - c.getDamage();
             waspHP = waspHP + c.getHealing();
             
@@ -719,8 +720,10 @@ public class driver
         }
         main.remove(leftPanel);
         main.remove(rightPanel);
+        main.remove(card);
         leftPanel = new JPanel(new GridLayout(1, 1));
         rightPanel = new JPanel(new GridLayout(1, 1));
+        card = new JPanel(new GridLayout(2, 1));
         
         //
         int height = leftPanel.getHeight();
@@ -736,12 +739,23 @@ public class driver
         hp2.setHorizontalAlignment(JLabel.CENTER);
         hp2.setVerticalAlignment(JLabel.CENTER);
         rightPanel.add(hp2);
+        JLabel name = new JLabel(chosenCard.getName());
+        name.setFont(customFont);
+        name.setHorizontalAlignment(JLabel.CENTER);
+        name.setVerticalAlignment(JLabel.CENTER);
+        card.add(name);
+        JLabel ability = new JLabel(chosenCard.getAbility());
+        ability.setFont(customFont);
+        ability.setHorizontalAlignment(JLabel.CENTER);
+        ability.setVerticalAlignment(JLabel.CENTER);
+        card.add(ability);
         
         rightPanel.setPreferredSize(new Dimension(400, height));
         rightPanel.setBackground(hackGreen);
         
         main.getContentPane().add(leftPanel, BorderLayout.WEST);
         main.getContentPane().add(rightPanel, BorderLayout.EAST);
+        main.getContentPane().add(card, BorderLayout.CENTER);
         
         main.revalidate();
         main.repaint();
