@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -12,6 +14,13 @@ public class Initial {
 	public static void main(String args[])
 	{
 	    JFrame initial = new JFrame("Hive Wars.");
+	    
+	    // Dialog_input font is the closest font to terminal I could find
+	 	Font customFont = new Font(Font.DIALOG_INPUT, Font.BOLD, 30);
+	 	//Exact RGB for the 2019 Hacklahoma Green - Taken from Hacklahoma.org
+	 	Color hackGreen = new Color(169, 217, 188);
+	 	Color hackYellow = new Color(255, 213, 138);
+	 	Color hackDarkGreen = new Color(0, 138, 136);
 	    
 	    // set the size and bounds
 	    initial.setBounds(50, 50, 600, 600);
@@ -33,6 +42,11 @@ public class Initial {
 	    midLeft.setLayout(new BorderLayout(20, 20));
 	    JLabel p1 = new JLabel("Player One");
 	    JButton p1_setDeck = new JButton("Set Deck");
+	    // test button params
+	    p1_setDeck.setBackground(hackDarkGreen);
+	    p1_setDeck.setForeground(hackYellow);
+	    p1_setDeck.setFocusPainted(false);
+	    p1_setDeck.setFont(customFont);
 	    JPictureBox p1_image = new JPictureBox();					// Player One Picture
 	    ImageIcon Bee = new ImageIcon("Images/HoneyNut.jpg");		// Image Object
 	    p1_image.setIcon(Bee);									//set JPicBox as Image
