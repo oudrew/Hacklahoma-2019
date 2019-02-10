@@ -16,6 +16,7 @@ public class driver
     public static boolean isP1 = true; //these are used by CardPanel and PlayCardPanel
     public static boolean p1Playing = true;
     public static boolean p1Turn = true;
+    public static boolean hasPoison = false;
 
     public static JFrame playCardFrameP1; // So are these
     public static JFrame playCardFrameP2;
@@ -56,6 +57,10 @@ public class driver
     public static void main(String args[])
     {
         JFrame initial = new JFrame("Hive Wars.");
+        
+        ImageIcon icon = new ImageIcon("Images/Icon.png");
+        
+        initial.setIconImage(icon.getImage());
 
         //Font font = new Font(Font.SERIF, Font.BOLD, 30);
         
@@ -153,6 +158,9 @@ public class driver
 
         //Frame where player 1 will select their deck
         JFrame frameP1 = new JFrame();
+        
+        frameP1.setIconImage(icon.getImage());
+        
         frameP1.setBounds(50, 50, 1000, 1000);
         frameP1.setPreferredSize(new Dimension(1000, 1000));
         frameP1.getContentPane().setLayout(new BorderLayout());
@@ -233,6 +241,7 @@ public class driver
          */
         
         JFrame frameP2 = new JFrame();
+        frameP2.setIconImage(icon.getImage());
         frameP2.setBounds(50, 50, 1000, 1000);
         frameP2.setPreferredSize(new Dimension(1000, 1000));
         frameP2.getContentPane().setLayout(new BorderLayout());
@@ -309,6 +318,7 @@ public class driver
          * --------------------------------------------------------------------------------------------------
          */
         playCardFrameP1 = new JFrame();
+        playCardFrameP1.setIconImage(icon.getImage());
         playCardFrameP1.setBounds(50, 50, 1000, 1000);
         playCardFrameP1.setPreferredSize(new Dimension(1000, 1000));
         playCardFrameP1.getContentPane().setLayout(new BorderLayout());
@@ -322,6 +332,7 @@ public class driver
          * --------------------------------------------------------------------------------------------------
          */
         playCardFrameP2 = new JFrame();
+        playCardFrameP2.setIconImage(icon.getImage());
         playCardFrameP2.setBounds(50, 50, 1000, 1000);
         playCardFrameP2.setPreferredSize(new Dimension(1000, 1000));
         playCardFrameP2.getContentPane().setLayout(new BorderLayout());
@@ -554,8 +565,10 @@ public class driver
         beePanel.add(beeWinText);
         beePanel.setBackground(hackGreen);
         beesWin.add(beePanel);
+        beesWin.setIconImage(icon.getImage());
         
         waspsWin = new JFrame();
+        waspsWin.setIconImage(icon.getImage());
         waspsWin.setBounds(50, 50, 1000, 1000);
         waspsWin.setPreferredSize(new Dimension(1300, 1500));
         waspsWin.getContentPane().setLayout(new GridLayout(1, 1));
@@ -577,13 +590,31 @@ public class driver
 
     public static void playCard(Card c)
     {
+    	int beeBuffID = 1;
+      
      	Color hackGreen = new Color(169, 217, 188);
     	
-        System.out.println(c.getAbility());
+      
+      System.out.println(c.getAbility());
         if (p1Turn == true)
         {
-            waspHP = waspHP - c.getDamage();
-            beeHP = beeHP + c.getHealing();
+        	if (hasPoison) {
+        		beeHP = beeHP - (c.getDamage() * beeBuffID);
+        		beeHP = beeHP + (c.getHealing() * beeBuffID);
+        		hasPoison = false;
+        		beeBuffID = 1;
+        	}
+        	
+        	else {
+        		waspHP = waspHP - (c.getDamage() * beeBuffID);
+        		beeHP = beeHP + (c.getHealing() * beeBuffID);
+        		beeBuffID = 1;
+        	}
+        	
+        	if ((c.getID() == 6)||(c.getID() == 26)) {
+        		beeBuffID = 2;
+        	}
+        	
             p1Turn = false;
             if (c.getAffiliation() == "Bee")
             {
@@ -621,6 +652,43 @@ public class driver
         {
             beeHP = beeHP - c.getDamage();
             waspHP = waspHP + c.getHealing();
+            
+            
+            if ((c.getModifier() != 0) && (c.getModifier() != 2)) {
+            	c.setDamage(c.getDamage() + c.getModifier());
+            }
+            
+            if (c.getModifier() == 2) {
+            	c.setDamage(c.getDamage() * 2);
+            }
+            
+            int buffID = 0;
+            
+            switch (c.getID()) {
+		
+			case 18:
+				buffID = 18;
+				break;
+				
+			case 19:
+				buffID = 19;
+				break;
+
+			default:
+				buffID = 0;
+				break;
+			}
+            
+            if (buffID != 0) {
+            	if (buffID == 18) {
+            		beeHP = beeHP/2;
+            	}
+            	
+            	if (buffID == 19) {
+            		hasPoison = true;
+            	}
+            }
+            
             p1Turn = true;
             if (waspHP <= 0)
             {

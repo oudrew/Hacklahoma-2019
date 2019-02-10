@@ -69,7 +69,7 @@ public class CardList {
 	
 	public static HashMap<Integer, Card> makeWaspCards() {
 	    HashMap<Integer, Card> waspCards = new HashMap<Integer, Card>();
-		Card yellowjacket = new Card("YellowJacket", "Wasp", "Deal 3 damage, damage increases by 2 each time this is played", 10);
+		Card yellowjacket = new Card("YellowJacket", "Wasp", "Deal 4 damage, damage increases by 3 each time this is played", 10);
 		yellowjacket.setDamage(3);
 		yellowjacket.setModifier(2);
 	    waspCards.put(10, yellowjacket);
@@ -92,11 +92,11 @@ public class CardList {
 		tarantulaHawkWasp.setDamage(7);
 		waspCards.put(14, tarantulaHawkWasp);
 		
-		Card reusableStinger = new Card("Reusable Stinger", "Wasp", "Copies the last card played", 15);
+		Card reusableStinger = new Card("Reusable Stinger", "Wasp", "Heals 7 health", 15);
+		reusableStinger.setHealing(7);
 		waspCards.put(15, reusableStinger);
-		/* SPECIAL ABILITY HERE!!!!!! */
 		
-		Card paperWasp = new Card("Paper Wasp", "Wasp", "Deals 1 damage, increases by 3 each time this is played", 16);
+		Card paperWasp = new Card("Paper Wasp", "Wasp", "Deals 1 damage, increases by 4 each time this is played", 16);
 		paperWasp.setDamage(1);
 		paperWasp.setModifier(3);
 		waspCards.put(16, paperWasp);
@@ -149,10 +149,9 @@ public class CardList {
 		neutralCards.put(26, allergy);
 		/* SPECIAL ABILITY HERE!!!!!! */
 		
-		Card bowAndArrow = new Card("Bow and Arrow", "Neutral", "Deals 4 damage, 30% chance to deal double damage", 27);
-		bowAndArrow.setDamage(4);
+		Card bowAndArrow = new Card("Bow and Arrow", "Neutral", "Deals 5 damage", 27);
+		bowAndArrow.setDamage(5);
 		neutralCards.put(27, bowAndArrow);
-		/* SPECIAL ABILITY HERE!!!!!! */
 		
 		Card hummingbirdFeeder = new Card("Hummingbird Feeder", "Neutral", "Heals both teams 10 health", 28);
 		hummingbirdFeeder.setHealing(10);
