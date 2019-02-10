@@ -567,7 +567,7 @@ public class driver
         waspWinText.setHorizontalAlignment(JLabel.CENTER);
         waspWinText.setVerticalAlignment(JLabel.CENTER);
         JPanel waspPanel = new JPanel(new GridLayout(1, 1));
-        waspPanel.add(waspPanel);
+        waspPanel.add(waspWinText);
         waspPanel.setBackground(hackGreen);
         waspsWin.add(waspPanel);
         
