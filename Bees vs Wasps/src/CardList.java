@@ -1,3 +1,4 @@
+import java.util.HashMap;
 
 public class CardList {
 	public static void main(String[] args) {
@@ -6,30 +7,50 @@ public class CardList {
 		makeNeutralCards();
 	}
 	
-	public static void makeBeeCards() {
+	public static HashMap<Integer, Card> makeBeeCards() {
+	    HashMap<Integer, Card> beeCards = new HashMap<Integer, Card>();
 		Card honeyBee = new Card("Honey Bee", "Bee", "Deal 5 damage and take 2 damage", 0);
+		beeCards.put(0, honeyBee);
 		Card killerBee = new Card("Killer Bee", "Bee", "Deal 10 damage and take 7 damage", 1);
+		beeCards.put(1, killerBee);
 		Card queenBee = new Card("Queen Bee", "Bee", "Deal 1 damage and heal 6 damage", 2);
+		beeCards.put(2, queenBee);
 		Card beeKeeper = new Card("Bee Keeper", "Bee", "Heal 4 damage", 3);
+		beeCards.put(3, beeKeeper);
 		Card apiary = new Card("Apiary", "Bee", "Heal 8 damage", 4);
+		beeCards.put(4, apiary);
 		Card bumbleBee = new Card("Bumble Bee", "Bee", "deal 4 damage and take 1 damage", 5);
+		beeCards.put(5, bumbleBee);
 		Card swarm = new Card("Swarm", "Bee", "Next attack does twice the damage to yourself AND your opponent", 6);
+		beeCards.put(6, swarm);
 		Card superBee = new Card("Super Bee", "Bee", "Deal 14 damage and take 12 damage", 7);
+		beeCards.put(7, superBee);
 		Card carpenterBee = new Card("Carpenter Bee", "Bee", "Deal 7 damage and take 4 damage", 8);
+		beeCards.put(8, carpenterBee);
 		Card workerBee = new Card("Worker Bee", "Bee", "Deal 2 damage and heal 3 damage", 9);
+		beeCards.put(9, workerBee);
+        return beeCards;
 	}
 	
-	public static void makeWaspCards() {
+	public static HashMap<Integer, Card> makeWaspCards() {
+	    HashMap<Integer, Card> waspCards = new HashMap<Integer, Card>();
 		Card yellowjacket = new Card("YellowJacket", "Wasp", "Deal 3 damage, damage increases by 2 each time this is played", 10);
+		waspCards.put(10, yellowjacket);
 		Card hornet = new Card("Hornet", "Wasp", "deal 2 damage, damage doubles each use up to 10 total", 11);
+		waspCards.put(11, hornet);
 		Card mudDauber = new Card("Mud Dauber", "Wasp", "Deal 1 damage, damage doubles each use", 12);
+		waspCards.put(12, mudDauber);
 		Card stolenHoney = new Card("Stolen Honey", "Wasp", "Heal 7 damage", 13);
+		waspCards.put(13, stolenHoney);
 		Card tarantulaHawkWasp = new Card("Tarantula Hawk Wasp", "Wasp", "Deals 7 damage", 14);
+		waspCards.put(14, tarantulaHawkWasp);
 		Card reusableStinger = new Card("Reusable Stinger", "Wasp", "Copies the last card played", 15);
+		waspCards.put(15, reusableStinger);
 		Card paperWasp = new Card("Paper Wasp", "Wasp", "Deals 1 damage, increases by 3 each time this is played", 16);
 		Card cicadaKiller = new Card("Cicada Killer", "Wasp", "Deals 5 damage, increases by 1 each time this is played", 17);
 		Card megaWasp = new Card("Mega Wasp", "Wasp", "Deals half the hive's remaining health", 18);
 		Card poisonWasp = new Card ("Poison Wasp", "Wasp", "Deals 3 damage, the opponent's next attack damages themselves", 19);
+		return waspCards;
 	}
 	
 	public static void makeNeutralCards() {
